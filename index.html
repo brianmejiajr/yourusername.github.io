@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///Users/brianmejia/Downloads/portfolio_17.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Mejia — Health Plan Data Analyst</title>
+<meta name="description" content="Brian Mejia is a Health Plan Data Analyst with frontline ACA enrollment and health plan compliance experience, Tableau proficiency, and an MSc in Digital Healthcare from the Universitat de Barcelona.">
+<meta name="keywords" content="Brian Mejia, Health Plan Data Analyst, Healthcare Business Analyst, ACA Enrollment, Claims Data, Tableau, Population Health, KPI Development, Digital Health, Barcelona">
+<meta property="og:title" content="Brian Mejia — Health Plan Data Analyst">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://brianmejia.com/">
+<link href="./Brian Mejia — Health Plan Data Analyst_files/css2" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #060708;
+  --surface:   #0b0d10;
+  --surface2:  #0f1115;
+  --border:    #131518;
+  --border-hi: #1c1f24;
+  --muted:     #6a7a88;
+  --mid:       #7a8e9e;
+  --sub:       #a8bcc8;
+  --text:      #d4e0e8;
+  --bright:    #e8f0f6;
+  --white:     #f2f7fa;
+  --teal:      #38a08a;
+  --teal-dim:  #1a4a40;
+  --amber:     #e8a13a;
+  --amber-dim: rgba(232,161,58,0.08);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Avenir Next', 'Avenir', -apple-system, 'Helvetica Neue', sans-serif;
+  font-weight: 400; font-size: 14px; line-height: 1.7;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  pointer-events: none; z-index: 998; opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection { background: var(--teal); color: var(--bg); }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 1px; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 1.5rem 3.5rem;
+  display: flex; justify-content: flex-end; align-items: center;
+  border-bottom: 1px solid transparent;
+  transition: background 0.5s, border-color 0.5s, backdrop-filter 0.5s;
+}
+nav.scrolled { background: rgba(6,7,8,0.92); backdrop-filter: blur(24px); border-color: var(--border); }
+.nav-r { display: flex; align-items: center; gap: 2.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+.nav-avail { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 0.45rem; }
+.nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); animation: blink 2.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.35;transform:scale(0.7);} }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 72px 72px; opacity: 0.5;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 100%, black 30%, transparent 100%);
+}
+.hero-glow {
+  position: absolute; bottom: -15vh; right: 0;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(ellipse at center, rgba(232,161,58,0.04) 0%, rgba(56,160,138,0.025) 45%, transparent 72%);
+  pointer-events: none; z-index: 0;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 3.5rem 5rem;
+}
+.hero-globe-wrap {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-left: 1px solid var(--border); min-height: 100vh;
+}
+#globe-canvas { display: block; }
+
+.hero-eyebrow {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+  opacity: 0; animation: fadeUp 0.7s ease 0.1s forwards;
+}
+.hero-eyebrow::before { content:''; width:1.5rem; height:1px; background:var(--teal); }
+.hero-name {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 300;
+  font-size: clamp(5rem, 13vw, 11rem); line-height: 0.86; letter-spacing: -0.03em;
+  color: var(--white); margin-bottom: 2.25rem;
+  opacity: 0; animation: fadeUp 0.9s ease 0.2s forwards;
+}
+.hero-name em { font-style: italic; color: var(--sub); display: block; padding-left: 0.06em; }
+.hero-bio { font-size: 14.5px; line-height: 1.85; color: var(--sub); max-width: 46ch; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+.hero-bio strong { color: var(--text); font-weight: 500; }
+.hero-actions { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
+.hero-loc { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sub); display: flex; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+.hero-loc::before { content: '◎'; font-size: 9px; color: var(--amber); }
+
+.btn-teal { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem; background: var(--teal); color: var(--bg); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; transition: background 0.25s, transform 0.25s; }
+.btn-teal:hover { background: #45b89d; transform: translateY(-1px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.73rem 1.6rem; border: 1px solid var(--border-hi); color: var(--sub); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; transition: border-color 0.25s, color 0.25s, transform 0.25s; }
+.btn-outline:hover { border-color: var(--muted); color: var(--text); transform: translateY(-1px); }
+.btn-ghost { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub); display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+.btn-ghost:hover { color: var(--text); }
+.btn-ghost .arr { transition: transform 0.2s; }
+.btn-ghost:hover .arr { transform: translateX(3px); }
+
+/* GLOBE LEGEND */
+.globe-legend {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; gap: 0.55rem; z-index: 5;
+  background: rgba(6,7,8,0.6); border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.75rem 1rem; backdrop-filter: blur(6px);
+}
+.globe-legend-item { display: flex; align-items: center; gap: 0.5rem; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
+.globe-legend-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+/* SHARED SECTION CHROME */
+.sec-tag { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.sec-tag::before { content:''; width:1rem; height:1px; background:var(--teal); }
+.sec-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 300; color: var(--bright); line-height: 1.15; letter-spacing: -0.01em; }
+.sec-title em { font-style: italic; color: var(--sub); }
+.sec-rule { flex:1; height:1px; background:var(--border); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+/* STORY */
+.story { padding: 9rem 3.5rem; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; position: relative; z-index: 1; }
+.story-left { position: sticky; top: 7rem; }
+.story-lead { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 300; font-style: italic; color: var(--text); line-height: 1.6; margin-bottom: 2.5rem; border-left: 1px solid var(--teal-dim); padding-left: 1.75rem; }
+.story-p { font-size: 14.5px; color: var(--sub); line-height: 1.95; margin-bottom: 1.5rem; max-width: 58ch; }
+.story-p strong { color: var(--text); font-weight: 500; }
+.story-p:last-child { margin-bottom: 0; }
+.amber-hi { color: var(--amber); font-weight: 500; }
+
+/* TOOLS */
+.tools-section { padding: 5rem 3.5rem; border-bottom: 1px solid var(--border); position: relative; z-index: 1; background: var(--surface); }
+.tools-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
+.tools-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.tool-card { background: var(--surface2); padding: 1.75rem 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; transition: background 0.3s; cursor: default; position: relative; }
+.tool-card:hover { background: var(--surface); }
+.tool-icon { font-size: 1.6rem; transition: transform 0.3s; line-height: 1; }
+.tool-card:hover .tool-icon { transform: scale(1.1); }
+.tool-name { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.tool-card.featured { background: var(--surface); }
+.tool-card.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--teal); }
+.tool-card.featured .tool-name { color: var(--sub); }
+
+/* INTERSECTION */
+.intersection { padding: 8rem 3.5rem; border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
+.int-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 5rem; }
+.int-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--border); }
+.int-col { padding: 3rem 2.5rem; border-right: 1px solid var(--border); transition: background 0.35s; }
+.int-col:last-child { border-right: none; }
+.int-col:hover { background: var(--surface); }
+.int-col-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; }
+.int-col-name { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); }
+.int-col-icon { font-size: 1.3rem; opacity: 0.25; }
+.int-skills { list-style: none; }
+.int-skills li { font-size: 12.5px; color: var(--sub); padding: 0.5rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s, padding-left 0.25s; cursor: default; }
+.int-skills li:last-child { border-bottom: none; }
+.int-skills li:hover { color: var(--text); padding-left: 0.4rem; }
+.int-col.overlap { background: var(--surface); border-left: 1px solid var(--border-hi); border-right: 1px solid var(--border-hi); }
+.int-col.overlap:hover { background: var(--surface2); }
+.int-col.overlap .int-col-name { color: var(--amber); }
+.int-col.overlap .int-col-icon { opacity: 0.5; }
+.overlap-badge { display: inline-block; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); background: var(--amber); padding: 0.15rem 0.5rem; margin-bottom: 1.25rem; }
+
+/* WORK */
+.work { padding: 8rem 3.5rem; border-bottom: 1px solid var(--border); position: relative; z-index: 1; }
+.work-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 5rem; }
+.proj-list { display: flex; flex-direction: column; }
+.proj { display: grid; grid-template-columns: 4.5rem 1fr auto; gap: 3rem; align-items: start; padding: 2.75rem 0; border-bottom: 1px solid var(--border); transition: padding-left 0.35s; cursor: default; }
+.proj:first-child { border-top: 1px solid var(--border); }
+.proj:hover { padding-left: 0.75rem; }
+.proj-n { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 0.85rem; font-weight: 300; color: var(--muted); padding-top: 0.3rem; }
+.proj-name { font-family: 'Playfair Display', Georgia, serif; font-size: 1.45rem; font-weight: 400; color: var(--bright); line-height: 1.2; margin-bottom: 0.85rem; letter-spacing: -0.01em; transition: color 0.2s; }
+.proj:hover .proj-name { color: var(--white); }
+.proj-desc { font-size: 13px; color: var(--sub); line-height: 1.85; max-width: 58ch; margin-bottom: 1.1rem; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ptag { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 0.2rem 0.55rem; transition: border-color 0.2s, color 0.2s; }
+.proj:hover .ptag { border-color: var(--border-hi); color: var(--mid); }
+.proj-meta { text-align: right; }
+.proj-yr { font-size: 10px; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+.proj-badge { display: inline-block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid var(--border-hi); color: var(--mid); }
+.proj-badge.live { border-color: var(--teal-dim); color: var(--teal); animation: livepulse 2s ease-in-out infinite; }
+@keyframes livepulse { 0%,100%{opacity:1;}50%{opacity:0.5;} }
+.proj-badge.inprogress { border-color: #5c4a1a; color: #e8c060; position: relative; overflow: hidden; }
+.proj-badge.inprogress::after { content:''; position:absolute; bottom:0; left:0; height:2px; background:#e8c060; animation: progress 3s ease-in-out infinite alternate; }
+@keyframes progress { from{width:30%;}to{width:85%;} }
+.proj-badge.ongoing { border-color: #1a3a5c; color: #60a8e8; position: relative; overflow: hidden; }
+.proj-badge.ongoing::after { content:''; position:absolute; bottom:0; left:0; height:2px; background:#60a8e8; animation: progress 4s ease-in-out infinite alternate; }
+
+/* CONTACT */
+.contact-section { padding: 8rem 3.5rem; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.contact-section::before { content:''; position:absolute; top:0; left:0; width:50%; height:100%; background:radial-gradient(ellipse at 30% 60%, var(--amber-dim) 0%, transparent 65%); pointer-events:none; }
+.contact-left { position: relative; }
+.contact-right { padding-top: 4.5rem; }
+.contact-det { margin-top: 2.5rem; display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+.det-row { display: flex; gap: 1.5rem; align-items: baseline; padding: 0.85rem 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.det-k { width: 5.5rem; flex-shrink: 0; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub); }
+.det-v { color: var(--text); }
+.det-v.open { color: var(--teal); }
+.clinks { display: flex; flex-direction: column; }
+.clink { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); transition: padding-left 0.3s; }
+.clink:first-child { border-top: 1px solid var(--border); }
+.clink:hover { padding-left: 0.5rem; }
+.clink-k { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); margin-bottom: 0.3rem; }
+.clink-v { font-size: 13.5px; color: var(--text); transition: color 0.2s; }
+.clink:hover .clink-v { color: var(--white); }
+.clink-arr { color: var(--sub); font-size: 1rem; transition: transform 0.25s, color 0.25s; }
+.clink:hover .clink-arr { transform: translateX(4px); color: var(--teal); }
+.cv-download { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; border: 1px solid var(--border-hi); margin-top: 1.5rem; background: var(--surface); transition: border-color 0.3s, background 0.3s; }
+.cv-download:hover { border-color: var(--teal-dim); background: var(--surface2); }
+.cv-left { display: flex; flex-direction: column; gap: 0.2rem; }
+.cv-label { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sub); }
+.cv-name { font-size: 13px; color: var(--text); }
+.cv-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 1.1rem; background: var(--teal); color: var(--bg); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; transition: background 0.2s; flex-shrink: 0; }
+.cv-btn:hover { background: #45b89d; }
+
+/* FOOTER */
+footer { padding: 2rem 3.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; opacity: 0; animation: fadeIn 0.8s ease 1.2s forwards; }
+.ft-name { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 0.85rem; color: var(--sub); }
+.ft-note { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+@keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .nav-links, .nav-avail { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-inner { padding: 7rem 1.5rem 3rem; }
+  .hero-globe-wrap { min-height: 60vw; border-left: none; border-top: 1px solid var(--border); }
+  .story { padding: 6rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+  .story-left { position: static; }
+  .tools-section { padding: 5rem 1.5rem; }
+  .tools-grid { grid-template-columns: repeat(3, 1fr); }
+  .intersection { padding: 6rem 1.5rem; }
+  .int-grid { grid-template-columns: 1fr; }
+  .int-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .int-col:last-child { border-bottom: none; }
+  .work { padding: 6rem 1.5rem; }
+  .proj { grid-template-columns: 3rem 1fr; }
+  .proj-meta { display: none; }
+  .contact-section { padding: 6rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
+  .contact-right { padding-top: 0; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a href="#story">Story</a></li>
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-avail"><span class="nav-dot"></span>Open to Health Plan DA Roles</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Health Plan Data Analyst · Population Health · Barcelona</div>
+    <h1 class="hero-name">Brian<em>Mejia</em></h1>
+    <p class="hero-bio">
+      <strong>Healthcare data professional</strong> with frontline health plan experience — translating ACA enrollment, claims workflows, and compliance data into dashboards, KPIs, and actionable insights that help organizations lower the cost of care.
+    </p>
+    <div class="hero-actions">
+      <a href="file:///Users/brianmejia/Downloads/portfolio_17.html#work" class="btn-teal">View Work</a>
+      <a href="file:///Users/brianmejia/Downloads/portfolio_17.html#contact" class="btn-outline">↓ Download CV</a>
+      <a href="file:///Users/brianmejia/Downloads/portfolio_17.html#contact" class="btn-ghost">Contact <span class="arr">→</span></a>
+    </div>
+    <div class="hero-loc">United States &nbsp;/&nbsp; Barcelona, Spain</div>
+  </div>
+  <div class="hero-globe-wrap">
+    <canvas id="globe-canvas" width="1484" height="1562" style="width: 742px; height: 781px; cursor: grab;"></canvas>
+  <div class="globe-legend"><div class="globe-legend-item"><div class="globe-legend-dot" style="background: rgb(77, 255, 214);"></div><span>Born · Miami, FL</span></div><div class="globe-legend-item"><div class="globe-legend-dot" style="background: rgb(255, 204, 85);"></div><span>Raised · Santo Domingo</span></div><div class="globe-legend-item"><div class="globe-legend-dot" style="background: rgb(128, 204, 255);"></div><span>Based · Barcelona</span></div></div></div>
+</div>
+
+<!-- STORY -->
+<div class="story reveal" id="story">
+  <div class="story-left">
+    <div class="sec-tag">01 — Story</div>
+    <h2 class="sec-title">The arc<br><em>behind</em><br>the work</h2>
+  </div>
+  <div class="story-right">
+    <p class="story-lead">"I didn't just enroll people in health plans — I learned what breaks inside them. Now I build the data systems that fix it."</p>
+    <p class="story-p">I'm a <strong>Dominican-American healthcare professional</strong> with direct experience inside the health plan enrollment pipeline — guiding members through ACA coverage, navigating prescription assistance programs, and maintaining compliance in environments where a single data error meant someone lost access to care.</p>
+    <p class="story-p">That frontline exposure gave me something rare: I understand <span class="amber-hi">claims data, member adherence, and cost-of-care gaps from the inside out</span> — not just from a spreadsheet. I've seen where KPIs fail to capture the real story, and where dashboard decisions ripple down to real patients.</p>
+    <p class="story-p">Now I'm in Barcelona, pursuing a <strong>Master's in Digital Healthcare</strong> at the Universitat de Barcelona — deepening my expertise in population health analytics, AI-driven care models, and data strategy to support health systems in reducing unplanned admissions and improving financial performance.</p>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="tools-section reveal" id="tools">
+  <div class="tools-header">
+    <div class="sec-tag" style="margin-bottom:0">02 — Tools &amp; Languages</div>
+    <h2 class="sec-title" style="font-size:clamp(1.5rem,2.5vw,2rem)">What I work with</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card featured"><div class="tool-icon">📊</div><div class="tool-name">Tableau</div></div>
+    <div class="tool-card featured"><div class="tool-icon">📋</div><div class="tool-name">MS Excel</div></div>
+    <div class="tool-card featured"><div class="tool-icon">🗄️</div><div class="tool-name">SQL</div></div>
+    <div class="tool-card"><div class="tool-icon">📑</div><div class="tool-name">MS Access</div></div>
+    <div class="tool-card"><div class="tool-icon">🗃️</div><div class="tool-name">CRM Systems</div></div>
+    <div class="tool-card"><div class="tool-icon">🔬</div><div class="tool-name">mHealth Platforms</div></div>
+  </div>
+</div>
+
+<!-- INTERSECTION -->
+<div class="intersection reveal" id="expertise">
+  <div class="int-header">
+    <div class="sec-tag" style="margin-bottom:0">03 — Expertise</div>
+    <h2 class="sec-title">Where three worlds meet</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="int-grid">
+    <div class="int-col">
+      <div class="int-col-top"><div class="int-col-name">Health Plan Domain</div><span class="int-col-icon">⚕</span></div>
+      <ul class="int-skills">
+        <li>ACA Enrollment &amp; Claims Knowledge</li>
+        <li>Health Plan Compliance</li>
+        <li>Member Adherence &amp; Access</li>
+        <li>Prescription Assistance Programs</li>
+        <li>Regulatory &amp; Payor Operations</li>
+        <li>Bilingual Communication EN/ES</li>
+      </ul>
+    </div>
+    <div class="int-col overlap">
+      <div class="int-col-top"><div class="int-col-name">The Intersection</div><span class="int-col-icon">◈</span></div>
+      <div class="overlap-badge">Where I live</div>
+      <ul class="int-skills">
+        <li>KPI Development &amp; Benchmarking</li>
+        <li>Dashboard &amp; Report Deployment</li>
+        <li>Population Health Analytics</li>
+        <li>Cost-of-Care Analysis</li>
+        <li>Stakeholder Insight Presentation</li>
+        <li>Data-Driven Care Models</li>
+      </ul>
+    </div>
+    <div class="int-col">
+      <div class="int-col-top"><div class="int-col-name">Analytics &amp; Technology</div><span class="int-col-icon">⌬</span></div>
+      <ul class="int-skills">
+        <li>Tableau &amp; Data Visualization</li>
+        <li>SQL &amp; Database Management</li>
+        <li>MS Excel, Access, PowerPoint</li>
+        <li>Business Process Analysis</li>
+        <li>Agile &amp; Scrum</li>
+        <li>Web Development (HTML/CSS)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<div class="work reveal" id="work">
+  <div class="work-header">
+    <div class="sec-tag" style="margin-bottom:0">04 — Work</div>
+    <h2 class="sec-title">Selected Projects</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="proj-list">
+    <div class="proj">
+      <div class="proj-n">01</div>
+      <div>
+        <h3 class="proj-name">ACA Enrollment Compliance &amp; Reporting Workflow Tool</h3>
+        <p class="proj-desc">Designed and deployed a web-based operational tool that standardized agent workflows across compliance disclosures, objection handling, and plan enrollment steps. Functioned as a real-time performance measurement system — improving call consistency, reducing compliance errors, and generating structured data for reporting and agent benchmarking. Built directly from firsthand knowledge of where claims and enrollment processes break down.</p>
+        <div class="proj-tags">
+          <span class="ptag">Workflow Design</span><span class="ptag">Performance Measurement</span><span class="ptag">Compliance Reporting</span><span class="ptag">KPI Benchmarking</span><span class="ptag">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="proj-meta"><div class="proj-yr">2024</div><span class="proj-badge live">Live</span></div>
+    </div>
+    <div class="proj">
+      <div class="proj-n">02</div>
+      <div>
+        <h3 class="proj-name">mHealth Integration Strategy — Hospital de la Santa Creu i Sant Pau</h3>
+        <p class="proj-desc">Population health analytics project analyzing how HSCSP can scale mHealth application adoption into the heart-failure patient pathway — moving from fragmented pilot programs to standardized, data-driven clinical practice. Focused on identifying gaps in member adherence, quantifying potential reduction in unplanned admissions, and recommending a KPI framework to measure ROI of digital health interventions.</p>
+        <div class="proj-tags">
+          <span class="ptag">Population Health</span><span class="ptag">Member Adherence</span><span class="ptag">KPI Framework</span><span class="ptag">ROI Analysis</span><span class="ptag">mHealth</span>
+        </div>
+      </div>
+      <div class="proj-meta"><div class="proj-yr">2025</div><span class="proj-badge inprogress">In Progress</span></div>
+    </div>
+    <div class="proj">
+      <div class="proj-n">03</div>
+      <div>
+        <h3 class="proj-name">MSc in Digital Healthcare — Universitat de Barcelona</h3>
+        <p class="proj-desc">Graduate-level study in digital health transformation, AI in healthcare, and data-driven care models — with direct application to population health strategy, financial performance analytics, and health system operations. Coursework spans health data systems, clinical decision support, and the economics of digital health interventions across payor and provider settings.</p>
+        <div class="proj-tags">
+          <span class="ptag">Health Data Systems</span><span class="ptag">AI in Healthcare</span><span class="ptag">Population Health</span><span class="ptag">Health Economics</span><span class="ptag">Digital Transformation</span>
+        </div>
+      </div>
+      <div class="proj-meta"><div class="proj-yr">2024–25</div><span class="proj-badge ongoing">Ongoing</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section reveal" id="contact">
+  <div class="contact-left">
+    <div class="sec-tag">05 — Contact</div>
+    <h2 class="sec-title">Let's build something <em>that matters</em>.</h2>
+    <p style="font-size:13px; color:var(--sub); line-height:1.8; margin-top:1rem;">
+      Open to <strong style="color:var(--text); font-weight:500">Health Plan Data Analyst</strong> and <strong style="color:var(--text); font-weight:500">Healthcare Business Analyst</strong> roles — bringing frontline health plan knowledge, population health analytics experience, and a graduate-level foundation in digital health strategy.
+    </p>
+    <div class="contact-det">
+      <div class="det-row"><span class="det-k">Location</span><span class="det-v">United States / Barcelona</span></div>
+      <div class="det-row"><span class="det-k">Languages</span><span class="det-v">English, Spanish</span></div>
+      <div class="det-row"><span class="det-k">Status</span><span class="det-v open">Open to Health Plan DA Roles</span></div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <div class="clinks">
+      <a href="mailto:briannealmejia@proton.me" class="clink">
+        <div><div class="clink-k">Email</div><div class="clink-v">briannealmejia@proton.me</div></div>
+        <span class="clink-arr">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/jrmejiabrian/" target="_blank" class="clink">
+        <div><div class="clink-k">LinkedIn</div><div class="clink-v">linkedin.com/in/jrmejiabrian</div></div>
+        <span class="clink-arr">→</span>
+      </a>
+    </div>
+    <a href="file:///Users/brianmejia/Downloads/portfolio_17.html#" class="cv-download" onclick="alert(&#39;Replace this href with your CV file link.&#39;); return false;">
+      <div class="cv-left"><div class="cv-label">Curriculum Vitae</div><div class="cv-name">Brian_Mejia_CV.pdf</div></div>
+      <span class="cv-btn">↓ Download</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft-name">Brian Mejia</span>
+  <span class="ft-note">Healthcare · Digital · Barcelona · 2025</span>
+</footer>
+
+<script src="./Brian Mejia — Health Plan Data Analyst_files/three.min.js"></script>
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Globe
+(function() {
+  const wrap = document.querySelector('.hero-globe-wrap');
+  const canvas = document.getElementById('globe-canvas');
+  function initGlobe() {
+    const W = wrap.clientWidth || window.innerWidth / 2;
+    const H = wrap.clientHeight || window.innerHeight;
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+    renderer.setClearColor(0x000000, 0);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 1000);
+    camera.position.z = 4.8;
+    const RADIUS = 1;
+
+    // Canvas texture for continents
+    const texSize = 2048;
+    const tc = document.createElement('canvas');
+    tc.width = texSize; tc.height = texSize / 2;
+    const tx = tc.getContext('2d');
+    tx.fillStyle = '#050d1a'; tx.fillRect(0, 0, texSize, texSize / 2);
+    function ll2px(lat, lng) { return [((lng+180)/360)*texSize, ((90-lat)/180)*(texSize/2)]; }
+    tx.fillStyle = '#1e4060'; tx.strokeStyle = '#1e4060'; tx.lineJoin = 'round';
+    function drawShape(coords) {
+      tx.beginPath();
+      coords.forEach(([lat,lng],i) => { const [x,y]=ll2px(lat,lng); i===0?tx.moveTo(x,y):tx.lineTo(x,y); });
+      tx.closePath(); tx.fill();
+    }
+    // North America
+    drawShape([[72,-140],[72,-80],[70,-70],[62,-65],[50,-55],[47,-52],[44,-66],[42,-70],[36,-75],[28,-80],[24,-82],[25,-90],[20,-88],[15,-87],[10,-83],[8,-77],[10,-85],[14,-90],[20,-90],[22,-98],[25,-109],[30,-110],[32,-117],[36,-121],[40,-124],[48,-124],[54,-130],[60,-140],[67,-141],[72,-140]]);
+    drawShape([[23,-74],[22,-79],[22,-84],[23,-82],[23,-74]]); // Cuba
+    drawShape([[83,-40],[83,-20],[76,-18],[65,-38],[65,-52],[76,-58],[83,-40]]); // Greenland
+    // South America
+    drawShape([[12,-72],[10,-62],[5,-52],[0,-50],[-5,-35],[-15,-39],[-23,-43],[-33,-53],[-38,-58],[-45,-65],[-55,-67],[-55,-64],[-45,-65],[-38,-62],[-25,-48],[-15,-75],[-5,-80],[0,-80],[5,-77],[12,-72]]);
+    // Europe
+    drawShape([[72,28],[68,28],[63,6],[57,8],[52,4],[51,2],[48,0],[44,0],[36,-8],[37,0],[40,4],[43,6],[45,14],[44,14],[40,18],[38,16],[40,18],[44,12],[47,8],[48,17],[52,22],[56,24],[60,22],[64,26],[68,28],[72,28]]);
+    drawShape([[58,-4],[51,0],[52,4],[56,-2],[58,-4]]); // UK
+    // Africa
+    drawShape([[38,10],[32,12],[24,12],[16,14],[8,4],[0,8],[-8,12],[-20,16],[-28,16],[-34,26],[-22,35],[-10,40],[2,41],[8,44],[14,42],[18,38],[22,36],[28,34],[34,28],[36,22],[38,18],[38,10]]);
+    drawShape([[-12,49],[-20,44],[-26,48],[-18,50],[-12,49]]); // Madagascar
+    // Asia
+    drawShape([[72,28],[72,60],[72,100],[72,140],[65,142],[58,130],[52,142],[44,136],[36,128],[32,128],[28,122],[20,110],[8,104],[1,104],[1,108],[8,100],[16,100],[20,92],[16,80],[8,77],[8,68],[16,42],[20,38],[22,50],[28,60],[36,72],[42,50],[48,46],[52,34],[58,28],[60,30],[60,26],[62,28],[66,28],[72,28]]);
+    drawShape([[42,140],[36,136],[34,130],[36,136],[42,140]]); // Japan
+    drawShape([[4,96],[0,100],[-6,108],[0,108],[4,104],[4,96]]); // Indonesia
+    // Australia
+    drawShape([[-16,128],[-12,136],[-16,136],[-20,148],[-28,154],[-38,148],[-36,140],[-32,128],[-26,114],[-18,122],[-16,128]]);
+    drawShape([[-34,172],[-40,175],[-44,168],[-38,176],[-34,172]]); // NZ
+    // Antarctica
+    drawShape([[-68,0],[-68,60],[-68,120],[-68,180],[-68,-120],[-68,-60],[-68,0],[-90,0],[-90,60],[-90,120],[-90,180],[-90,-120],[-90,-60],[-90,0]]);
+
+    const globeTex = new THREE.CanvasTexture(tc);
+    const globeMesh = new THREE.Mesh(
+      new THREE.SphereGeometry(RADIUS, 64, 64),
+      new THREE.MeshPhongMaterial({ map: globeTex, specular: 0x0d2a44, shininess: 10 })
+    );
+    scene.add(globeMesh);
+
+    // Atmosphere
+    const atmMat = new THREE.ShaderMaterial({
+      vertexShader: `varying vec3 vN; void main(){ vN=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+      fragmentShader: `varying vec3 vN; void main(){ float i=pow(0.55-dot(vN,vec3(0,0,1.0)),2.5); gl_FragColor=vec4(0.15,0.55,0.48,1.0)*i*0.6; }`,
+      side: THREE.FrontSide, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+    });
+    scene.add(new THREE.Mesh(new THREE.SphereGeometry(RADIUS*1.09, 64, 64), atmMat));
+
+    scene.add(new THREE.AmbientLight(0x334455, 1.2));
+    const sun = new THREE.DirectionalLight(0x88aacc, 1.1);
+    sun.position.set(3,2,4); scene.add(sun);
+
+    function latLng(lat, lng, r) {
+      const phi=(90-lat)*Math.PI/180, theta=(lng+180)*Math.PI/180;
+      return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(theta), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(theta));
+    }
+
+    const locations = [
+      { name: 'Born · Miami, FL',       lat: 25.7617, lng: -80.1918, color: 0x4dffd6, hex: '#4dffd6' },
+      { name: 'Raised · Santo Domingo', lat: 18.4861, lng: -69.9312, color: 0xffcc55, hex: '#ffcc55' },
+      { name: 'Based · Barcelona',      lat: 41.3851, lng:  2.1734,  color: 0x80ccff, hex: '#80ccff' },
+    ];
+
+    const dotObjs = [];
+    locations.forEach(loc => {
+      const pos = latLng(loc.lat, loc.lng, RADIUS);
+      const dot = new THREE.Mesh(new THREE.SphereGeometry(0.022,12,12), new THREE.MeshBasicMaterial({color:loc.color}));
+      dot.position.copy(pos); globeMesh.add(dot);
+      const ringMat = new THREE.MeshBasicMaterial({color:loc.color,side:THREE.DoubleSide,transparent:true,opacity:0.8});
+      const ring = new THREE.Mesh(new THREE.RingGeometry(0.030,0.050,32), ringMat);
+      ring.position.copy(pos); ring.lookAt(pos.clone().multiplyScalar(2)); globeMesh.add(ring);
+      const ring2Mat = new THREE.MeshBasicMaterial({color:loc.color,side:THREE.DoubleSide,transparent:true,opacity:0.3});
+      const ring2 = new THREE.Mesh(new THREE.RingGeometry(0.052,0.070,32), ring2Mat);
+      ring2.position.copy(pos); ring2.lookAt(pos.clone().multiplyScalar(2)); globeMesh.add(ring2);
+      const cv=document.createElement('canvas'); cv.width=320; cv.height=64;
+      const ctx=cv.getContext('2d'); ctx.font='600 20px "Avenir Next",Avenir,sans-serif';
+      ctx.fillStyle=loc.hex; ctx.fillText(loc.name,4,42);
+      const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv),transparent:true,opacity:0}));
+      sprite.position.copy(pos.clone().multiplyScalar(1.28)); sprite.scale.set(0.58,0.145,1);
+      globeMesh.add(sprite);
+      dotObjs.push({ring,ring2,ringMat,ring2Mat,sprite,phase:Math.random()*Math.PI*2});
+    });
+
+    // Drag
+    let isDrag=false, px=0, py=0, velY=0.0005, velX=0, rotX=0.25, rotY=0;
+    canvas.style.cursor='grab';
+    canvas.addEventListener('mousedown',e=>{isDrag=true;px=e.clientX;py=e.clientY;canvas.style.cursor='grabbing';});
+    window.addEventListener('mouseup',()=>{isDrag=false;canvas.style.cursor='grab';});
+    canvas.addEventListener('mousemove',e=>{if(!isDrag)return;velY=(e.clientX-px)*0.003;velX=(e.clientY-py)*0.002;px=e.clientX;py=e.clientY;});
+    let ttx=0;
+    canvas.addEventListener('touchstart',e=>{ttx=e.touches[0].clientX;});
+    canvas.addEventListener('touchmove',e=>{velY=(e.touches[0].clientX-ttx)*0.003;ttx=e.touches[0].clientX;});
+    window.addEventListener('resize',()=>{const W2=wrap.clientWidth,H2=wrap.clientHeight;renderer.setSize(W2,H2);camera.aspect=W2/H2;camera.updateProjectionMatrix();});
+
+    let t=0;
+    function animate() {
+      requestAnimationFrame(animate); t+=0.016;
+      if(!isDrag){velY=velY*0.98+0.00008;velX*=0.92;}
+      rotY+=velY;rotX+=velX;rotX=Math.max(-0.55,Math.min(0.55,rotX));
+      globeMesh.rotation.y=rotY;globeMesh.rotation.x=rotX;
+      dotObjs.forEach(obj=>{
+        const pulse=Math.abs(Math.sin(t*1.6+obj.phase));
+        obj.ring.scale.setScalar(0.85+pulse*0.9);obj.ringMat.opacity=0.8-pulse*0.55;
+        obj.ring2.scale.setScalar(0.7+pulse*1.3);obj.ring2Mat.opacity=0.3-pulse*0.22;
+        const wp=new THREE.Vector3();obj.ring.getWorldPosition(wp);
+        const facing=wp.clone().normalize().dot(new THREE.Vector3(0,0,1));
+        const target=facing>0.15?Math.min(1,(facing-0.15)/0.35):0;
+        obj.sprite.material.opacity+=(target-obj.sprite.material.opacity)*0.06;
+      });
+      renderer.render(scene,camera);
+    }
+    animate();
+
+    // Legend
+    const legend = document.createElement('div');
+    legend.className = 'globe-legend';
+    locations.forEach(loc => {
+      const item=document.createElement('div'); item.className='globe-legend-item';
+      const d=document.createElement('div'); d.className='globe-legend-dot'; d.style.background=loc.hex;
+      const s=document.createElement('span'); s.textContent=loc.name;
+      item.appendChild(d); item.appendChild(s); legend.appendChild(item);
+    });
+    wrap.appendChild(legend);
+  }
+  if (document.readyState==='complete') setTimeout(initGlobe,100);
+  else window.addEventListener('load',()=>setTimeout(initGlobe,100));
+})();
+</script>
+
+
+</body></html>
